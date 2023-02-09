@@ -1,3 +1,5 @@
+package HW5;
+
 import java.util.Objects;
 
 public interface HillelList {
@@ -15,7 +17,10 @@ public interface HillelList {
     }
 
     default String remove(int index) {
-        System.arraycopy(list, index + 1, list, index, list.length - 1 - index);
+        if (index < 0 || index > size()) {
+            System.out.println("Index is out of List borders");
+        } else {
+        System.arraycopy(list, index + 1, list, index, list.length - 1 - index);}
         return list[index];
     }
 
